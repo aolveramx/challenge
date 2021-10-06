@@ -4,10 +4,13 @@ const app = express();
 const registerRoutes = require('./routes');
 
 // server config
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 // register routes
 registerRoutes(app);
+
+// Static files
+app.use(express.static(__dirname + '/client/public'))
 
 // create server start method
 const start = () => {
@@ -22,6 +25,9 @@ const start = () => {
     });
 }
 
-module.exports = start;
+const main = async () => {
+    await start();
+    return;
+};
 
-
+main();
