@@ -12,11 +12,12 @@ const useFetch = (url) => {
 
     const abortFetch = new AbortController()
 
-    fetch(url, { signal: abortFetch.signal, mode: 'no-cors' })
+    fetch(url, { signal: abortFetch.signal })
       .then(res => {
         if(!res.ok) {
           throw new Error(`Could not fetch from: ${url}`)
         }
+        console.log(url)
         return res.json()
       })
       .then(data => {
@@ -34,7 +35,7 @@ const useFetch = (url) => {
           isLoading: false,
           error: true,
         })
-        console.log(error)
+        console.log(error.message)
       })
 
     return () => abortFetch.abort()

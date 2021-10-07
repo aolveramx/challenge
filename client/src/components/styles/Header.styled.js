@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Navbar = styled.nav`
   align-items: center;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid ${({theme}) => theme.colors.secondary};
   display: flex;
   margin: 0 auto;
   padding: 20px;
@@ -15,11 +15,11 @@ export const Navbar = styled.nav`
   }
 
   & a:hover {
-    color: #f1356d;
+    color: ${({theme}) => theme.colors.secondary};
   }
 
   & h1 {
-    color: #f1356d;
+    color: ${({theme}) => theme.colors.primary};
   }
 `
 

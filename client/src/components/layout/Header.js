@@ -4,12 +4,10 @@ import { Navbar, NavLinks } from '../styles/Header.styled'
 const Header = () => {
   return (
     <Navbar>
-      <h1>Wallmex</h1>
+      <h1>Walmex</h1>
       <NavLinks>
         <Link to="/">Home</Link>
         <Link to="/users">Users</Link>
-        <Link to="/age">Age</Link>
-        <Link to="/health">Health</Link>
       </NavLinks>
     </Navbar>
   )

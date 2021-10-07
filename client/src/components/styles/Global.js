@@ -5,7 +5,7 @@ const GlobalStyles = createGlobalStyle`
 
   * {
     box-sizing: border-box;
-    color: #333;
+    color: ${({theme}) => theme.colors.dark};
     font-family: 'Quicksand';
     margin: 0;
   }
