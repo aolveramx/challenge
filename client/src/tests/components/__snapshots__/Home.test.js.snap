@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests in <Home /> should render <Home /> 1`] = `
+<Fragment>
+  <div>
+    Loading...
+  </div>
+  <Dropdown />
+</Fragment>
+`;

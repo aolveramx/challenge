@@ -2,6 +2,10 @@
 const _ = require('lodash');
 const db = require('./db.js');
 
+const userProducts = db.itemsOfUserByUsername
+const usersArray = db.usersById
+const userProductsCounter = 0
+
 
 // UTILS
 //----------------
@@ -23,34 +27,39 @@ const getUsers = () => {
 
 const getListOfAgesOfUsersWith = (product) => {
     // TODO - 5) Return data structure to frontend catch error
+
     const dataAccessMethod = () => {
         const matchedUsers = []
-        if (product) {
-            _.map(db.itemsOfUserByUsername, (user, index) => {
-                if(user.indexOf(product) >= 0) {
-                    matchedUsers.push(index)
-                }
-            })
-        }
-        return matchedUsers
-    }
-    const callDataAccessMethod = dataAccessMethod()
-    return mockDBCall(callDataAccessMethod);
 
+        for(const user in userProducts) {
+            if (userProducts[user].indexOf(product) >= userProductsCounter) {
+                matchedUsers.push(user)
+            }
+        }
+        console.log(matchedUsers)
+        return getAges(matchedUsers)
+    }
+
+    dataAccessMethod()
+
+    const getAges = function(matchedUsers) {
+        let count = {}
+        matchedUsers.forEach(element => {
+            usersArray.forEach(userInfo => {
+                if(userInfo.name === element) {
+                    if(count[userInfo.age === undefined]) {
+                        count[userInfo.age] = 1
+                } else {
+                    count[userInfo.age] = count[userInfo.age] + 1
+                }
+            }
+        })
+    })
+        return dataAccessMethod
+    }
 }
 
 module.exports = {
     getUsers,
     getListOfAgesOfUsersWith
 };
-
-// var arr = [{key:"11", value:"1100"},{key:"22", value:"2200"}];
-// var object = arr.reduce(
-//   (obj, item) => Object.assign(obj, { [item.key]: item.value }), {});
-
-// console.log(object)
-
-        // const array = db.itemsOfUserByUsername
-        // const object = array.reduce(
-        //     (obj, item) => Object.assign(obj, {[item.key]: item.value}, {})
-        // )

@@ -7,5 +7,5 @@ const getUsersHandler = async (request, response) => {
 };
 
 module.exports = (app) => {
-    app.get('/users', getUsersHandler);
+    app.get(`/users`, getUsersHandler);
 };

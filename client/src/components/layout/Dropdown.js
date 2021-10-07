@@ -22,7 +22,7 @@ const Dropdown = () => {
   
   const handleClick = (e) => {
     console.log(e.target.value)
-    const url = `/users/age?product=${e.target.value}`
+    const url = `http://localhost:5000/users/age?product=${e.target.value}`
     console.log(url)
     setProductURL(url)
   }
