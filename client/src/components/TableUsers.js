@@ -1,5 +1,4 @@
 const TableUsers = ({ users }) => {
-
   return (
     <>
       {users.map((user, index) => (

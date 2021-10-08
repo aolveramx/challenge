@@ -63,8 +63,6 @@ const getListOfAgesOfUsersWith = (product) => {
         throw new Error(error.message)
     }
 
-
-
 }
 
 module.exports = {

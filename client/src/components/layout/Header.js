@@ -6,8 +6,8 @@ const Header = () => {
     <Navbar>
       <h1>Walmex</h1>
       <NavLinks>
-        <Link to="/">Home</Link>
-        <Link to="/users">Users</Link>
+        <Link to='/'>Home</Link>
+        <Link to='/users'>Users</Link>
       </NavLinks>
     </Navbar>
   )

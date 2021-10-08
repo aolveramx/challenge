@@ -1,18 +1,17 @@
-import useFetch from "../hooks/useFetch"
-import TableUsers from "./TableUsers"
+import useFetch from '../hooks/useFetch'
+import TableUsers from './TableUsers'
 
-import { Table } from "./styles/Home.styled"
+import { Table } from './styles/Home.styled'
 
 const Users = () => {
-
   const url = `/users`
-  const {isLoading, data: users, error} = useFetch(url)
+  const { isLoading, data: users, error } = useFetch(url)
 
   return (
     <div>
       {isLoading && <div>Loading...</div>}
       {error && <div>{console.log(error)}</div>}
-      {users && 
+      {users && (
         <Table>
           <thead>
             <tr>
@@ -24,7 +23,7 @@ const Users = () => {
             <TableUsers users={users} />
           </tbody>
         </Table>
-      }
+      )}
     </div>
   )
 }
