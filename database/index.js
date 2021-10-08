@@ -3,7 +3,7 @@ const _ = require('lodash');
 const db = require('./db.js');
 
 const userProducts = db.itemsOfUserByUsername
-const usersArray = db.usersById
+const usersObject = db.usersById
 const userProductsCounter = 0
 
 
@@ -26,37 +26,45 @@ const getUsers = () => {
 };
 
 const getListOfAgesOfUsersWith = (product) => {
-    // TODO - 5) Return data structure to frontend catch error
 
-    const dataAccessMethod = () => {
-        const matchedUsers = []
+    try {
 
-        for(const user in userProducts) {
-            if (userProducts[user].indexOf(product) >= userProductsCounter) {
-                matchedUsers.push(user)
-            }
+        const getAges = function(matchedUsers) {
+            let count = {}
+            matchedUsers.forEach(element => {
+                
+                _.forEach(usersObject, userInfo => {
+                    if(userInfo.username === element) {
+                        if(count[userInfo.age] === undefined) {
+                            count[userInfo.age] = 1
+                    } else {
+                        count[userInfo.age] = count[userInfo.age] + 1
+                    }
+                }
+            })
+        })
+            return [count]
         }
-        console.log(matchedUsers)
-        return getAges(matchedUsers)
-    }
-
-    dataAccessMethod()
-
-    const getAges = function(matchedUsers) {
-        let count = {}
-        matchedUsers.forEach(element => {
-            usersArray.forEach(userInfo => {
-                if(userInfo.name === element) {
-                    if(count[userInfo.age === undefined]) {
-                        count[userInfo.age] = 1
-                } else {
-                    count[userInfo.age] = count[userInfo.age] + 1
+    
+        const dataAccessMethod = () => {
+            const matchedUsers = []
+    
+            for(const user in userProducts) {
+                if (userProducts[user].indexOf(product) >= userProductsCounter) {
+                    matchedUsers.push(user)
                 }
             }
-        })
-    })
-        return dataAccessMethod
+            return getAges(matchedUsers)
+        }
+    
+        return mockDBCall(dataAccessMethod)
+        
+    } catch (error) {
+        throw new Error(error.message)
     }
+
+
+
 }
 
 module.exports = {

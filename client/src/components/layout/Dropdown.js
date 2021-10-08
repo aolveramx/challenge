@@ -21,13 +21,13 @@ const Dropdown = () => {
   const select = shopingCart.map(add => add)
   
   const handleClick = (e) => {
-    console.log(e.target.value)
-    const url = `http://localhost:5000/users/age?product=${e.target.value}`
-    console.log(url)
+    const url = `/users/age?product=${e.target.value}`
     setProductURL(url)
   }
 
-  const {isLoading, data, error} = useFetch(productURL)
+  const {data} = useFetch(productURL)
+
+  console.log(data)
 
   return (
     <StyledSelect

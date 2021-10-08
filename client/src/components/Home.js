@@ -27,11 +27,10 @@ const Home = () => {
           </tbody>
         </Table>
       }
-      <Dropdown />
+        <Dropdown />
       {/* {
         data 
           ?
-          <Dropdown />
           :
           <div>Loading...</div>
       } */}

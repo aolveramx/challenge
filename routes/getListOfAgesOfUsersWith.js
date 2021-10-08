@@ -2,9 +2,9 @@
 const mockDBCalls = require('../database/index.js');
 
 const getListOfAgesOfUsersWithHandler = async (request, response) => {
-    // TODO - 4) interact with frontend
     const itemToLookup = request.query.product;
     const data = await mockDBCalls.getListOfAgesOfUsersWith(itemToLookup);
+    console.log(data)
     return response.status(200).json(data);
 };
 
